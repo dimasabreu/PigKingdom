@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Chao
   layers:
   - Default
   - TransparentFX
@@ -11,10 +12,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Entidades
+  - Decoracao
+  - Level
+  - Background
   - 
   - 
   - 
@@ -40,4 +41,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3098281549
+    locked: 0
+  - name: Level
+    uniqueID: 89870899
+    locked: 0
+  - name: Decoracao
+    uniqueID: 4001526915
+    locked: 0
+  - name: Inimigos
+    uniqueID: 3483689305
+    locked: 0
+  - name: Player
+    uniqueID: 2186394037
     locked: 0
