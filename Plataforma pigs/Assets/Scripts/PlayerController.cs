@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int qtdPulo = 1;
 
     [Header ("Raycast")]
-    private BoxCollider2D boxCol;
+    private CapsuleCollider2D capCol;
     [SerializeField] private LayerMask layerLevel;
     
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         meuRB = GetComponent<Rigidbody2D>();
         minhaAnimacao = GetComponent<Animator>();
-        boxCol = GetComponent<BoxCollider2D>();
+        capCol = GetComponent<CapsuleCollider2D>();
     }
 
     // melhor metodo para fisica
@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Movendo();
+        pulo();
     }
 
     private void Movendo()
@@ -44,26 +45,18 @@ public class PlayerController : MonoBehaviour
         // movendo para os lados e trocando de sprite
         var movimento = Input.GetAxis("Horizontal") * VeloDeMov;
         meuRB.velocity = new Vector2(movimento, meuRB.velocity.y);
+        
         // fazendo a sprite virar com o player
         if (movimento != 0)
         {
             transform.localScale = new Vector3(Mathf.Sign(movimento), 1f, 1f);
         }
-        // input de movimentacao
-        if(Input.GetKey(KeyCode.A))
-        {
-            minhaAnimacao.SetBool("Movendo",true);
-        }
-        else if(Input.GetKey(KeyCode.D))
-        {
-            minhaAnimacao.SetBool("Movendo",true);
-    
-        }
-        else
-        {
-            minhaAnimacao.SetBool("Movendo",false);
-        }
+        
+        minhaAnimacao.SetBool("Movendo", movimento != 0);
+    }
 
+    private void pulo()
+    {
         // pulo
         minhaAnimacao.SetFloat("VelocidadeVertical", meuRB.velocity.y);
         var pulo = Input.GetButtonDown("Jump");
@@ -77,7 +70,7 @@ public class PlayerController : MonoBehaviour
     // criando o raycast
     private bool IsGrounded()
     {
-        bool chao = Physics2D.Raycast(boxCol.bounds.center, Vector2.down, .6f, layerLevel);
+        bool chao = Physics2D.Raycast(capCol.bounds.center, Vector2.down, .5f, layerLevel);
         return chao;
     }
 }
