@@ -5,11 +5,12 @@ public class PlayerController : MonoBehaviour
     [Header ("Funções primarias")]
     private Rigidbody2D meuRB;
     private Animator minhaAnimacao;
-    
+    [SerializeField] private int vida = 3;
     [SerializeField] private float VeloDeMov = 5f;
     [SerializeField] private float VeloDePulo = 7f;
     [SerializeField] private int totalPulos = 1;
     [SerializeField] private int qtdPulo = 1;
+    [SerializeField] private float esperaDano = 0f;
 
     [Header ("Raycast")]
     private CapsuleCollider2D capCol;
@@ -38,6 +39,16 @@ public class PlayerController : MonoBehaviour
     {
         Movendo();
         pulo();
+        Invencibiliade();
+
+    }
+
+    private void  Invencibiliade()
+    {
+        if (esperaDano > 0f)
+        {
+            esperaDano -= Time.deltaTime;
+        }
     }
 
     private void Movendo()
@@ -86,8 +97,13 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Debug.Log("tomei de frente");
+                if (esperaDano <= 0f)
+                {
+                    vida--;
+                    esperaDano = 2f;
+                }
             }
+            
         }
     }
 
