@@ -70,7 +70,25 @@ public class PlayerController : MonoBehaviour
     // criando o raycast
     private bool IsGrounded()
     {
-        bool chao = Physics2D.Raycast(capCol.bounds.center, Vector2.down, .5f, layerLevel);
+        bool chao = Physics2D.Raycast(capCol.bounds.center, Vector2.down, .6f, layerLevel);
         return chao;
     }
+
+    // checando se o player bateu no inimigo
+    private void OnTriggerEnter2D(Collider2D collision) 
+    {
+        if (collision.gameObject.CompareTag("Inimigo"))
+        {
+            if (transform.position.y > collision.transform.position.y)
+            {
+                minhaAnimacao.SetFloat("VelocidadeVertical", meuRB.velocity.y);
+                meuRB.velocity = new Vector2(meuRB.velocity.x, VeloDePulo);
+            }
+            else
+            {
+                Debug.Log("tomei de frente");
+            }
+        }
+    }
+
 }
