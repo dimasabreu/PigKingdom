@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 125963924}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9781,7 +9781,7 @@ GameObject:
   - component: {fileID: 668317609}
   m_Layer: 8
   m_Name: level
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13082,7 +13082,7 @@ GameObject:
   - component: {fileID: 1103629971}
   m_Layer: 6
   m_Name: Porquinho
-  m_TagString: Untagged
+  m_TagString: Inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13171,8 +13171,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1947810391}
-  - {fileID: 1126096051}
+  - {fileID: 1864000012}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13209,10 +13208,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084bdd52ce4f00041a017640b907fa5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  layerLevel:
+    serializedVersion: 2
+    m_Bits: 256
+  speedh: 3
   espera: 2
-  maoDireita: {fileID: 1947810390}
-  maoEsquerda: {fileID: 1126096050}
 --- !u!61 &1103629971
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13239,37 +13239,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.49934578, y: 0.528821}
   m_EdgeRadius: 0
---- !u!1 &1126096050
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1126096051}
-  m_Layer: 0
-  m_Name: ParedeEsquerda
-  m_TagString: Untagged
-  m_Icon: {fileID: 2800000, guid: 41b96614b2e6494ba995ddcd252d11ae, type: 3}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1126096051
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1126096050}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.075, y: 0.24699992, z: -4.089825}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1103629967}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1559986754
 GameObject:
   m_ObjectHideFlags: 0
@@ -14185,7 +14154,7 @@ PolygonCollider2D:
       - {x: -21.391024, y: -5.3803144}
       - {x: 70.60887, y: -5.3737855}
       - {x: 70.60562, y: 4.6138215}
---- !u!1 &1947810390
+--- !u!1 &1864000011
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14193,26 +14162,53 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1947810391}
-  m_Layer: 0
-  m_Name: ParedeDireita
-  m_TagString: Untagged
-  m_Icon: {fileID: 2800000, guid: 41b96614b2e6494ba995ddcd252d11ae, type: 3}
+  - component: {fileID: 1864000012}
+  - component: {fileID: 1864000013}
+  m_Layer: 10
+  m_Name: colisor
+  m_TagString: Inimigo
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1947810391
+--- !u!4 &1864000012
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947810390}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.073, y: 0.24299997, z: -4.089825}
+  m_GameObject: {fileID: 1864000011}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.166, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1103629967}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1864000013
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864000011}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0012402534, y: 0.17695883}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5013609, y: 0.39424592}
+  m_EdgeRadius: 0
