@@ -24,6 +24,10 @@ public class PorquinhoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(vida <= 0)
+        {
+            morrendo();
+        }
     }
     private void FixedUpdate() 
     {
@@ -81,12 +85,10 @@ public class PorquinhoController : MonoBehaviour
     public void perdeVida(int dano)
     {
         vida -= dano;
-        if(vida <= 0)
-        {
-            morrendo();
-        }
-
+        Debug.Log("tomei");
+        
     }
+
     // criando o metodo para morrer
     public void morrendo()
     {
