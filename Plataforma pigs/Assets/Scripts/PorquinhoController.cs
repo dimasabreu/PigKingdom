@@ -14,6 +14,8 @@ public class PorquinhoController : MonoBehaviour
     [SerializeField] private float espera = 2f;
     [SerializeField] private BoxCollider2D colisor;
     [SerializeField] public int vida = 2;
+    private float stun;
+    public float comecoDoStun;
     void Start()
     {
         meuRB = GetComponent<Rigidbody2D>();
@@ -25,6 +27,15 @@ public class PorquinhoController : MonoBehaviour
     void Update()
     {
         minhaAnimacao.SetInteger("Vida", vida);
+        if(comecoDoStun <= 0)
+        {
+            speedh = 3;
+        }
+        else
+        {
+            speedh = 0;
+            comecoDoStun -= Time.deltaTime;
+        }
     }
     private void FixedUpdate() 
     {
@@ -82,6 +93,7 @@ public class PorquinhoController : MonoBehaviour
     public void perdeVida(int dano)
     {
         vida -= dano;
+        stun = comecoDoStun;
         meuRB.velocity = new Vector2(0f, meuRB.velocity.y + 4f);
         
         if (vida < 0)
@@ -99,7 +111,7 @@ public class PorquinhoController : MonoBehaviour
         // tirando a velocidade
         meuRB.velocity = Vector2.zero;
         // destruindo o gameobj
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 1f);
         // desabilitando o colisor
         colisor.enabled = false;
     }
