@@ -13,7 +13,7 @@ public class PorquinhoController : MonoBehaviour
     [SerializeField] private float speedh = 3f;
     [SerializeField] private float espera = 2f;
     [SerializeField] private BoxCollider2D colisor;
-    [SerializeField] public int vida = 5;
+    [SerializeField] public int vida = 2;
     void Start()
     {
         meuRB = GetComponent<Rigidbody2D>();
@@ -82,7 +82,7 @@ public class PorquinhoController : MonoBehaviour
     public void perdeVida(int dano)
     {
         vida -= dano;
-        meuRB.velocity = new Vector2(meuRB.velocity.x, meuRB.velocity.y + 4f);
+        meuRB.velocity = new Vector2(0f, meuRB.velocity.y + 4f);
         
         if (vida < 0)
         {
