@@ -39,8 +39,8 @@ public class PlayerVariant : MonoBehaviour
     public Transform peesquerdo;
     private bool morto = false;
     [SerializeField] private EdgeCollider2D  colisor;
-    private bool marretada = false;
-    [SerializeField] private Collider2D areaMarreta;
+   
+    
 
     // CODIGO!!!!!!!!!!!!!!!
     void Start()
@@ -51,7 +51,6 @@ public class PlayerVariant : MonoBehaviour
     {
         Invencibiliade();
         VendosedapraPula();
-        Batendo();
     }
 
      private void FixedUpdate() 
@@ -85,18 +84,6 @@ public class PlayerVariant : MonoBehaviour
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
-    private void Batendo()
-    {
-        if(Input.GetButtonDown("Fire1"))
-        {
-            anim.SetBool("Batendo", true);
-            areaMarreta.enabled = true;
-        }
-        else
-        {
-            anim.SetBool("Batendo", false);
-        }
-    }
     public void moveCharacter(float horizontal)
     {
         rb.AddForce(Vector2.right * horizontal * moveSpeed);
