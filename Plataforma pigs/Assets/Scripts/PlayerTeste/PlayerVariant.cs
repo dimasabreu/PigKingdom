@@ -6,7 +6,7 @@ public class PlayerVariant : MonoBehaviour
 {
     public ParticleSystem dust;
     [Header("Status")]
-    [SerializeField] private int vida = 3;
+    [SerializeField] private int vida = 2;
     [SerializeField] private float esperaDano = 0f;
 
     [Header("Movimentação horizontal")]
@@ -37,6 +37,10 @@ public class PlayerVariant : MonoBehaviour
     public float groundLenght = 0.1f;
     public Transform pedireito;
     public Transform peesquerdo;
+    private bool morto = false;
+    [SerializeField] private EdgeCollider2D  colisor;
+    private bool marretada = false;
+    [SerializeField] private Collider2D areaMarreta;
 
     // CODIGO!!!!!!!!!!!!!!!
     void Start()
@@ -47,8 +51,25 @@ public class PlayerVariant : MonoBehaviour
     {
         Invencibiliade();
         VendosedapraPula();
+        Batendo();
     }
 
+     private void FixedUpdate() 
+    {
+        if (vida >= 0)
+        {
+            moveCharacter(direction.x);
+            if(jumpTimer > Time.time && noChao)
+            {
+                Jump();
+            }
+            modifyPhysics();
+        }
+        else
+        {
+            Morrendo();
+        }
+    }
     private void VendosedapraPula()
     {
         bool estavanoChao = noChao;
@@ -64,16 +85,18 @@ public class PlayerVariant : MonoBehaviour
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
-    private void FixedUpdate() 
+    private void Batendo()
     {
-        moveCharacter(direction.x);
-        if(jumpTimer > Time.time && noChao)
+        if(Input.GetButtonDown("Fire1"))
         {
-            Jump();
+            anim.SetBool("Batendo", true);
+            areaMarreta.enabled = true;
         }
-        modifyPhysics();
+        else
+        {
+            anim.SetBool("Batendo", false);
+        }
     }
-
     public void moveCharacter(float horizontal)
     {
         rb.AddForce(Vector2.right * horizontal * moveSpeed);
@@ -176,8 +199,8 @@ public class PlayerVariant : MonoBehaviour
         {
             if (transform.position.y > collision.transform.position.y)
             {
-                
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+                collision.GetComponentInParent<Animator>().SetTrigger("DanoMorte");
             }
             else
             {
@@ -185,10 +208,21 @@ public class PlayerVariant : MonoBehaviour
                 {
                     vida--;
                     esperaDano = 2f;
+                    anim.SetTrigger("Dano");
+
+                    //informando a vida para o anim
+                    anim.SetInteger("Vida", vida);
                 }
             }
             
         }
+    }
+
+    public void Morrendo()
+    {
+        morto = true;
+        rb.velocity = new Vector2(0f, rb.velocity.y);
+        colisor.enabled = false;
     }
     void CreateDust()
     {
