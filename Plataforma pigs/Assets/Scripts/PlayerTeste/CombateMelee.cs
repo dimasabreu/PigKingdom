@@ -20,7 +20,7 @@ public class CombateMelee : MonoBehaviour
         {
             if(Input.GetButtonDown("Fire1"))
             {
-                anim.SetBool("Batendo", true);
+                anim.SetTrigger("Bati");
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                 for(int i = 0; i < enemiesToDamage.Length; i++)
                 {
@@ -29,15 +29,10 @@ public class CombateMelee : MonoBehaviour
                 timeBtwAttack = startTimeBtwAttack;
             }
             
-            else
-            {
-                anim.SetBool("Batendo", false);
-            }
         }
         else
         {
             timeBtwAttack -= Time.deltaTime;
-            
         }
    }
 
