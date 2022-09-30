@@ -8,10 +8,12 @@ public class PorquinhoController : MonoBehaviour
     private Rigidbody2D meuRB;
     private Animator minhaAnimacao;
     private BoxCollider2D boxCol;
+    private bool morto = false;
     [SerializeField] private LayerMask layerLevel;
     [SerializeField] private float speedh = 3f;
     [SerializeField] private float espera = 2f;
-   
+    [SerializeField] private BoxCollider2D colisor;
+    [SerializeField] public int vida = 1;
     void Start()
     {
         meuRB = GetComponent<Rigidbody2D>();
@@ -22,11 +24,13 @@ public class PorquinhoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
     private void FixedUpdate() 
     {
-        Movendo();
+        if (!morto)
+        {
+            Movendo();
+        }
     }
 
     private void Movendo()
@@ -64,6 +68,7 @@ public class PorquinhoController : MonoBehaviour
         minhaAnimacao.SetBool("Movendo", meuRB.velocity.x != 0);
     }
 
+    // vendo se estou batendo na parade e mudando a direcao
     private bool Parede()
     {
         var dir = new Vector2(Mathf.Sign(meuRB.velocity.x), 0f);
@@ -71,4 +76,27 @@ public class PorquinhoController : MonoBehaviour
         Debug.DrawRay(boxCol.bounds.center, dir * 1f, Color.red);
         return parede;
     }
+
+
+    public void perdeVida(int dano)
+    {
+        vida -= dano;
+        if(vida <= 0)
+        {
+            morrendo();
+        }
+
+    }
+    // criando o metodo para morrer
+    public void morrendo()
+    {
+        morto = true;
+        // tirando a velocidade
+        meuRB.velocity = Vector2.zero;
+        // destruindo o gameobj
+        Destroy(gameObject, 2f);
+        // desabilitando o colisor
+        colisor.enabled = false;
+    }
+
 }
