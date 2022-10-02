@@ -39,6 +39,8 @@ public class PlayerVariant : MonoBehaviour
     public Transform peesquerdo;
     private bool morto = false;
     [SerializeField] private EdgeCollider2D  colisor;
+    [SerializeField] private portaController portaAtual;
+    [SerializeField] private bool DoorAction = false;
    
     
 
@@ -49,8 +51,12 @@ public class PlayerVariant : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Invencibiliade();
-        VendosedapraPula();
+        if(!morto)
+        {
+            Invencibiliade();
+            VendosedapraPula();
+            AbrindoPorta();
+        }
     }
 
      private void FixedUpdate() 
@@ -203,16 +209,48 @@ public class PlayerVariant : MonoBehaviour
             }
             
         }
+        if (collision.gameObject.CompareTag("Porta"))
+        {
+            portaAtual = collision.GetComponent<portaController>();
+        }
     }
 
+    private void OnTriggerExit2D(Collider2D collision) 
+    {
+        if (collision.gameObject.CompareTag("Porta"))
+        {
+            portaAtual = null;
+        }
+    }
     public void Morrendo()
     {
         morto = true;
         rb.velocity = new Vector2(0f, rb.velocity.y);
         colisor.enabled = false;
     }
-    void CreateDust()
+    public void CreateDust()
     {
         dust.Play();
+    }
+
+    private void AbrindoPorta()
+    {
+        if (portaAtual != null)
+        {
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                if(!DoorAction)
+                {
+                    portaAtual.Abrindo();
+                    DoorAction = true;
+                }
+                else
+                {
+                    portaAtual.Fechando();
+                    DoorAction = false;
+                }
+                
+            }  
+        }
     }
 }
