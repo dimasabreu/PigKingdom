@@ -56,6 +56,7 @@ public class PlayerVariant : MonoBehaviour
             Invencibiliade();
             VendosedapraPula();
             AbrindoPorta();
+            EntrandoPorta();
         }
     }
 
@@ -251,6 +252,13 @@ public class PlayerVariant : MonoBehaviour
                 }
                 
             }  
+        }
+    }
+    private void EntrandoPorta()
+    {
+        if(DoorAction && Input.GetKeyDown(KeyCode.W))
+        {
+            anim.SetTrigger("EntrandoPorta");
         }
     }
 }
