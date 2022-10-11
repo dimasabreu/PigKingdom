@@ -198,15 +198,18 @@ public class PlayerVariant : MonoBehaviour
             }
             else
             {
-                if (esperaDano <= 0f)
+                if (!morto)
                 {
-                    vida--;
-                    esperaDano = 2f;
-                    anim.SetTrigger("Dano");
+                    if (esperaDano <= 0f)
+                    {
+                        vida--;
+                        esperaDano = 2f;
+                        anim.SetTrigger("Dano");
 
-                    //informando a vida para o anim
-                    anim.SetInteger("Vida", vida);
-                }
+                        //informando a vida para o anim
+                        anim.SetInteger("Vida", vida);
+                    }
+                } 
             }
             
         }
@@ -236,7 +239,7 @@ public class PlayerVariant : MonoBehaviour
 
     private void AbrindoPorta()
     {
-        if (portaAtual != null)
+        if (portaAtual != null && !morto)
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
@@ -254,11 +257,18 @@ public class PlayerVariant : MonoBehaviour
             }  
         }
     }
+
     private void EntrandoPorta()
     {
-        if(DoorAction && Input.GetKeyDown(KeyCode.W))
+        if(DoorAction && Input.GetKeyDown(KeyCode.W) && !morto)
         {
-            anim.SetTrigger("EntrandoPorta");
-        }
+            Invoke("Entrei", 0.15f);
+        } 
+    }
+
+    private void Entrei()
+    {
+        anim.SetTrigger("EntrandoPorta");
+        morto = true;
     }
 }
