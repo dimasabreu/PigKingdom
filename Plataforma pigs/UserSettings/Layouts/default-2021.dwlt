@@ -34,7 +34,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: AnimatorControllerTool
+  m_Name: AnimationWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -45,14 +45,14 @@ MonoBehaviour:
     height: 293
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 16}
+  m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 18}
   - {fileID: 17}
   - {fileID: 16}
   - {fileID: 15}
-  m_Selected: 2
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 2
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 151
+  controlID: 96
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 37
+  controlID: 161
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 149
+  controlID: 94
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 150
+  controlID: 95
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -385,10 +385,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 606
-    y: 741
-    width: 1313
-    height: 298
+    x: 555
+    y: 767
+    width: 1364
+    height: 272
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -427,14 +427,14 @@ MonoBehaviour:
     - {fileID: -8080278952992239344, guid: 9791ef49e7343d4458bde4363fec3796, type: 2}
     - {fileID: 4401565299206028689, guid: c848b9f8ff1f59549b652010fd20a83d, type: 2}
     m_ValueSerializationHelper:
-    - e00: 0.74949485
+    - e00: 0.8903177
       e01: 0
       e02: 0
-      e03: 225.44756
+      e03: 402.93787
       e10: 0
-      e11: 0.74949485
+      e11: 0.8903177
       e12: 0
-      e13: -46.961452
+      e13: -11.06237
       e20: 0
       e21: 0
       e22: 1
@@ -521,7 +521,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 25058
+  m_LastSelectedObjectID: 25026
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -890,22 +890,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/PlayerTeste
+    - "Assets/Anima\xE7\xF5es/Player/PlayerTESTE"
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/PlayerTeste
+  - "Assets/Anima\xE7\xF5es/Player/PlayerTESTE"
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\dimas\Desktop\Unity games\PigKingdom\Plataforma pigs
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 11}
-    m_SelectedIDs: 38650000
-    m_LastClickedID: 25912
-    m_ExpandedIDs: 000000000c6500000e6500001065000012650000146500001665000018650000
+    m_SelectedIDs: 22650000
+    m_LastClickedID: 25890
+    m_ExpandedIDs: 000000000a6500000c6500000e65000010650000126500001465000016650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -933,7 +933,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000000c6500000e6500001065000012650000146500001665000018650000
+    m_ExpandedIDs: 000000000a6500000c6500000e65000010650000126500001465000016650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -960,22 +960,22 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 50650000b26500008e7000006a670000e6640000ea640000e67200008c6e00009a620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: SaindoPORTA
+      m_OriginalName: SaindoPORTA
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 25504
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 4}
     m_CreateAssetUtility:
@@ -1050,7 +1050,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -1114,7 +1114,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 10fbffff
+      m_ExpandedIDs: 10fbffff5c610000c2610000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1376,7 +1376,7 @@ MonoBehaviour:
       index: 10
       layout: 4
   m_WindowGUID: 68818dae3642cd642b336c28f15bed61
-  m_Gizmos: 1
+  m_Gizmos: 0
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
   m_SceneLighting: 1
@@ -1385,9 +1385,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -16.169935, y: -0.7607705, z: 0.8766451}
+    m_Target: {x: -18.735512, y: -1.4518787, z: 0.8688815}
     speed: 2
-    m_Value: {x: -16.109497, y: -0.75955635, z: 0.87577224}
+    m_Value: {x: -18.735512, y: -1.4518787, z: 0.8688815}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1438,9 +1438,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1.8523484
+    m_Target: 0.9266013
     speed: 2
-    m_Value: 1.9396318
+    m_Value: 0.9266013
   m_Ortho:
     m_Target: 1
     speed: 2
