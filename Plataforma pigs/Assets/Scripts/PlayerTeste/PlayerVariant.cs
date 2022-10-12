@@ -262,13 +262,11 @@ public class PlayerVariant : MonoBehaviour
     {
         if(DoorAction && Input.GetKeyDown(KeyCode.W) && !morto)
         {
-            Invoke("Entrei", 0.15f);
+            anim.SetTrigger("EntrandoPorta");
+            morto = true;
+            rb.velocity = Vector2.zero;
+            
         } 
     }
 
-    private void Entrei()
-    {
-        anim.SetTrigger("EntrandoPorta");
-        morto = true;
-    }
 }
