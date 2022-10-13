@@ -9,6 +9,7 @@ TagManager:
   - Inimigo
   - Marreta
   - Porta
+  - GameManager
   layers:
   - Default
   - TransparentFX
