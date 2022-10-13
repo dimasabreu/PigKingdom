@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class portaController : MonoBehaviour
 {
-   private Animator anim;
+    [SerializeField] public string destino;
+    private Animator anim;
 
-   void Start()
-   {
-    anim = GetComponent<Animator>();
-   }
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     public void Abrindo()
     {
@@ -18,5 +19,10 @@ public class portaController : MonoBehaviour
     public void Fechando()
     {
         anim.SetTrigger("Fechei");
+    }
+
+    public void EnviandoDestino()
+    {
+        FindObjectOfType<TrocaDeLevel>().IndoDestino(destino);
     }
 }
