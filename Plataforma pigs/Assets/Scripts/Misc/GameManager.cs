@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,5 +15,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    // metodo de trocar de cena
+    public void MudaCena(string destino)
+    {
+        SceneManager.LoadScene(destino);
     }
 }
