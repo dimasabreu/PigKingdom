@@ -42,6 +42,7 @@ public class PlayerVariant : MonoBehaviour
     [SerializeField] private EdgeCollider2D  colisor;
     [SerializeField] private portaController portaAtual;
     [SerializeField] private bool DoorAction = false;
+   
     
    
     
@@ -267,6 +268,7 @@ public class PlayerVariant : MonoBehaviour
             anim.SetTrigger("EntrandoPorta");
             morto = true;
             rb.velocity = Vector2.zero;
+            portaAtual.IndoParaDestino();
         }
     }
 
