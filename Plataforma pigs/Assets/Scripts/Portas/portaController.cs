@@ -21,8 +21,8 @@ public class portaController : MonoBehaviour
         anim.SetTrigger("Fechei");
     }
 
-    public void EnviandoDestino()
+    public void IndoParaDestino()
     {
-        FindObjectOfType<TrocaDeLevel>().IndoDestino(destino);
+        FindObjectOfType<GameManager>().MudaCena(destino);
     }
 }
