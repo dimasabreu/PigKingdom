@@ -110,7 +110,7 @@ public class PlayerVariant : MonoBehaviour
     }
     public void Jump()
     {
-        
+        CreateDust();
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
         jumpTimer = 0;
@@ -151,7 +151,10 @@ public class PlayerVariant : MonoBehaviour
 
     public void Flip()
     {
-        CreateDust();
+        if (noChao)
+        {
+            CreateDust();
+        }
         facingRight = !facingRight;
         transform.rotation = Quaternion.Euler(0, facingRight ? 0 : 180, 0);
     }
@@ -219,6 +222,10 @@ public class PlayerVariant : MonoBehaviour
         if (collision.gameObject.CompareTag("Porta"))
         {
             portaAtual = collision.GetComponent<portaController>();
+        }
+        if(collision.gameObject.CompareTag("KillPlayer"))
+        {
+            Destroy(gameObject);
         }
     }
 
