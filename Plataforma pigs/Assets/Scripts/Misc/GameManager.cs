@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private static int vida = 3;
     void Start()
     {
         
@@ -21,5 +21,15 @@ public class GameManager : MonoBehaviour
     public void MudaCena(string destino)
     {
         SceneManager.LoadScene(destino);
+    }
+
+    public int GetVida()
+    {
+        return vida;
+    }
+    
+    public void SetVida(int novaVida)
+    {
+        vida = novaVida;
     }
 }
