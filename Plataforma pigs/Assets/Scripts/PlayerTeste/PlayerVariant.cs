@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class PlayerVariant : MonoBehaviour
 {
-    public ParticleSystem dust;
+    
     [Header("Status")]
-    [SerializeField] private int vida = 2;
+    [SerializeField] private int vida;
     [SerializeField] private float esperaDano = 0f;
 
     [Header("Movimentação horizontal")]
@@ -25,6 +25,8 @@ public class PlayerVariant : MonoBehaviour
     public Animator anim;
     public LayerMask Level;
     public GameObject characterHolder;
+    public ParticleSystem dust;
+    private GameManager gameManager;
 
     [Header("Fisica")]
     public float maxSpeed = 5f;
@@ -34,14 +36,15 @@ public class PlayerVariant : MonoBehaviour
     
 
     [Header("Colisão")]
+    [SerializeField] private EdgeCollider2D  colisor;
+    [SerializeField] private portaController portaAtual;
+    [SerializeField] private bool DoorAction = false;
     public bool noChao = false;
     public float groundLenght = 0.1f;
     public Transform pedireito;
     public Transform peesquerdo;
     private bool morto = false;
-    [SerializeField] private EdgeCollider2D  colisor;
-    [SerializeField] private portaController portaAtual;
-    [SerializeField] private bool DoorAction = false;
+    
    
     
    
@@ -50,6 +53,8 @@ public class PlayerVariant : MonoBehaviour
     // CODIGO!!!!!!!!!!!!!!!
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
+        vida = gameManager.GetVida();
     }
     // Update is called once per frame
     void Update()
@@ -211,7 +216,7 @@ public class PlayerVariant : MonoBehaviour
                         vida--;
                         esperaDano = 2f;
                         anim.SetTrigger("Dano");
-
+                        gameManager.SetVida(vida);
                         //informando a vida para o anim
                         anim.SetInteger("Vida", vida);
                     }
