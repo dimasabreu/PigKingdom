@@ -4979,7 +4979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441d476e9d3051d4b875b4337015f5a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dust: {fileID: 302870268720864842}
   vida: 2
   esperaDano: 0
   moveSpeed: 5
@@ -4992,17 +4991,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   characterHolder: {fileID: 302870268562048607}
+  dust: {fileID: 302870268720864842}
   maxSpeed: 5
   linearDrag: 15
   gravity: 1
   fallMultiplier: 5
+  colisor: {fileID: 302870269566756321}
+  portaAtual: {fileID: 0}
+  DoorAction: 0
   noChao: 0
   groundLenght: 0.05
   pedireito: {fileID: 302870268401976773}
   peesquerdo: {fileID: 302870269759822644}
-  colisor: {fileID: 302870269566756321}
-  portaAtual: {fileID: 0}
-  DoorAction: 0
 --- !u!68 &302870269566756321
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -5093,7 +5093,6 @@ GameObject:
   - component: {fileID: 302870270075011952}
   - component: {fileID: 302870270075011954}
   - component: {fileID: 302870270075011955}
-  - component: {fileID: 302870270075011917}
   m_Layer: 6
   m_Name: Character Animation
   m_TagString: Untagged
@@ -5188,15 +5187,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &302870270075011917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302870270075011953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 564ed042919cdf14196f0968a0434461, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
