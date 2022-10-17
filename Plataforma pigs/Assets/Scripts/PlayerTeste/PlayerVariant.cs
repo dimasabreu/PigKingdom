@@ -70,7 +70,7 @@ public class PlayerVariant : MonoBehaviour
 
      private void FixedUpdate() 
     {
-        if (vida >= 0)
+        if (vida > 0)
         {
             moveCharacter(direction.x);
             if(jumpTimer > Time.time && noChao)
@@ -230,7 +230,7 @@ public class PlayerVariant : MonoBehaviour
         }
         if(collision.gameObject.CompareTag("KillPlayer"))
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 1f);
         }
     }
 
@@ -246,6 +246,7 @@ public class PlayerVariant : MonoBehaviour
         morto = true;
         rb.velocity = new Vector2(0f, rb.velocity.y);
         colisor.enabled = false;
+        Invoke("ResetGame", 2f);
     }
     public void CreateDust()
     {
@@ -283,5 +284,9 @@ public class PlayerVariant : MonoBehaviour
             portaAtual.IndoParaDestino();
         }
     }
-
+    public void ResetGame()
+    {
+        gameManager.GameOver();
+    }
+    
 }
