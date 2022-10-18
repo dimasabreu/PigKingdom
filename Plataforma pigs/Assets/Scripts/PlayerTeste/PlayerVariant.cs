@@ -230,7 +230,7 @@ public class PlayerVariant : MonoBehaviour
         }
         if(collision.gameObject.CompareTag("KillPlayer"))
         {
-            Destroy(gameObject, 1f);
+            Morrendo();
         }
     }
 
