@@ -2,7 +2,7 @@
 
 
 
-How to play: <a href="https://dimasabreu.itch.io/pig-kingdom"> Download </a> <br>
+How to play: <a href="https://dimasabreu.itch.io/pig-kingdom"> Play the game </a> <br>
 
 Want to see more?<br>
 <a href="https://youtu.be/70Vy_IbcO4E"> GamePlay </a>
