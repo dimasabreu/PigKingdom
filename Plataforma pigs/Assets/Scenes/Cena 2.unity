@@ -5823,7 +5823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 783699272684059415, guid: 7149d24c11dc1fc4998f4c9e41453e94, type: 3}
       propertyPath: destino
-      value: Cena 1
+      value: Cena 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7149d24c11dc1fc4998f4c9e41453e94, type: 3}
@@ -11657,7 +11657,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 783699272684059415, guid: 7149d24c11dc1fc4998f4c9e41453e94, type: 3}
       propertyPath: destino
-      value: Cena 1
+      value: Cena 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7149d24c11dc1fc4998f4c9e41453e94, type: 3}
